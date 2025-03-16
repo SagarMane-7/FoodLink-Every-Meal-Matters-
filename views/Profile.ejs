@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/CSS/Profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <img id="logo" src="/images/Logo.png" alt="Logo">
+        <h2 id="title">Profile</h2>
+    </header>
+
+    <div id="container">
+        <div class="container1">
+            <nav class="sidebar">
+                <button id="dashboard">
+                    <i class="fa-solid fa-house"></i>
+                    <p>Dashboard</p>
+                </button>
+                <button id="profile">
+                    <i class="fa-solid fa-user"></i>
+                    <p>Profile</p>
+                </button>
+                <button id="history">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <p>History</p>
+                </button>
+                <button id="logout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <p>Logout</p>
+                </button>
+            </nav>
+            <div class="content">
+                <div id="profiledata">
+                    <h2>Profile</h2>
+                    <p>NGO Name:<%=profiles.NGOName%>
+                    </p>
+                    <p>Trust ID:<%=profiles.TrustID%>
+                    </p>
+                    <p>PAN ID:<%=profiles.PANID%>
+                    </p>
+                    <p>DARPAN ID:<%=profiles.DARPANID%>
+                    </p>
+                    <p>Address:<%=profiles.Address%>
+                    </p>
+                    <p>Mobile Number:<%=profiles.Mobile%>
+                    </p>
+                    <p>Email:<%=profiles.Email%>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="Footer">
+        <div div="address">
+            <h3>Address</h3>
+            <p>Survey No. 27, Near Trimurti Chowk</p>
+            <P>Dhankwadi, Pune - 411043</P>
+            <p><i class="fa-solid fa-phone"></i> +91 20 24371101 </p>
+            <p>
+                <i class="fa-solid fa-map-location"></i>
+                <a href="https://maps.app.goo.gl/2JNF3bfGsngKYw6B7" id="gmap">Google Map</a>
+            </p>
+        </div>
+        <div id="Contact">
+            <h3>Contact Details</h3>
+            <p>Ajinkya Mote_22150</p>
+            <p>Sagar Mane_22147</p>
+            <p>Riddhiraj Kulkarni_22142</p>
+            <p>Mrunalinee Malapur_22146</p>
+        </div>
+        <div>
+            <h3>Social Media</h3>
+            <p>
+                <i class="fa-brands fa-instagram"></i>
+                <a href="https://www.instagram.com/" id="socialmedia">Instagram</a>
+            </p>
+            <p>
+                <i class="fa-brands fa-x-twitter"></i>
+                <a href="https://x.com/?lang=en" id="socialmedia">Twitter</a>
+            </p>
+            <p>
+                <i class="fa-brands fa-youtube"></i>
+                <a href="https://www.youtube.com/" id="socialmedia">Youtube</a>
+            </p>
+        </div>
+    </footer>
+    <script src="/js/Profile.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,277 @@
+/* MoneyDonation.css - Styling for the Money Donation page */
+
+/* Define animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+    background-color: #F8F9FA;
+    color: #073B4C;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.moneydonation {
+    height: 100vh;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 1s ease;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+}
+
+.tofooddonation {
+    height: 400px;
+    width: 300px;
+    font-size: 20px;
+    background: linear-gradient(135deg, #073B4C, #38A3A5);
+    color: white;
+    border-radius: 10px 0 0 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    animation: slideInLeft 1s ease;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#tofoodbtn {
+    height: 45px;
+    width: 150px;
+    background-color: #f60;
+    color: #FFFFFF;
+    font-size: 18px;
+    border: 2px solid #38A3A5;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: fadeInUp 1.5s ease;
+    margin-top: 20px;
+}
+
+#tofoodbtn:hover {
+    background-color: #FFD166;
+    transform: scale(1.05);
+}
+
+#moneydonationform {
+    height: 400px;
+    width: 450px;
+    color: #073B4C;
+    background-color: #FFFFFF;
+    border: 2px solid #38A3A5;
+    border-radius: 0 10px 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    animation: slideInRight 1s ease;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+#mdtitle {
+    text-align: center;
+    color: #073B4C;
+    font-size: 28px;
+    margin-bottom: 15px;
+    animation: fadeInUp 1s ease;
+    width: 100%;
+}
+
+#mdfname {
+    height: 35px;
+    width: 175px;
+    border: 2px solid #38A3A5;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    animation: fadeInUp 1.1s ease;
+    box-sizing: border-box;
+}
+
+#mdfname:focus {
+    border-color: #f60;
+    box-shadow: 0 0 5px rgba(255,107,107,0.3);
+    outline: none;
+}
+
+#mdlname {
+    height: 35px;
+    width: 175px;
+    border: 2px solid #38A3A5;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    animation: fadeInUp 1.2s ease;
+    box-sizing: border-box;
+}
+
+#mdlname:focus {
+    border-color: #f60;
+    box-shadow: 0 0 5px rgba(255,107,107,0.3);
+    outline: none;
+}
+
+#mdmobile {
+    height: 35px;
+    width: 175px;
+    border: 2px solid #38A3A5;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    animation: fadeInUp 1.3s ease;
+    box-sizing: border-box;
+}
+
+#mdmobile:focus {
+    border-color: #f60;
+    box-shadow: 0 0 5px rgba(255,107,107,0.3);
+    outline: none;
+}
+
+#mdamount {
+    height: 35px;
+    width: 175px;
+    border: 2px solid #38A3A5;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    animation: fadeInUp 1.4s ease;
+    box-sizing: border-box;
+}
+
+#mdamount:focus {
+    border-color: #f60;
+    box-shadow: 0 0 5px rgba(255,107,107,0.3);
+    outline: none;
+}
+
+#email {
+    height: 35px;
+    width: 250px;
+    border: 2px solid #38A3A5;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    animation: fadeInUp 1.5s ease;
+    box-sizing: border-box;
+}
+
+#email:focus {
+    border-color: #f60;
+    box-shadow: 0 0 5px rgba(255,107,107,0.3);
+    outline: none;
+}
+
+#mddonatebtn {
+    height: 45px;
+    width: 150px;
+    background-color: #f60;
+    color: #FFFFFF;
+    font-size: 18px;
+    border: 2px solid #38A3A5;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: fadeInUp 1.6s ease;
+    margin-top: 10px;
+}
+
+#mddonatebtn:hover {
+    background-color: #FFD166;
+    transform: scale(1.05);
+}
+
+#home {
+    color: #FFFFFF;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 30px;
+    transition: all 0.3s ease;
+    animation: fadeInUp 1.5s ease;
+}
+
+#home:hover {
+    color: #FFD166;
+    transform: scale(1.05);
+}
+
+/*
+To remove arrows in mobile number 
+*/
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+

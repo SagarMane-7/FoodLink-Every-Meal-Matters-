@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodLink</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/FoodLink.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <div id="logo">
+            <img src="/Images/Logo.png">
+        </div>
+        <div>
+            <p id="title">FoodLink:</p>
+            <p id="subtitle">Every Meal Matters!</p>
+        </div>
+        <div id="login">
+            <form action="/action">
+                <h3 id="ngo">For NGO's</h3>
+                <label for="loginbtn"></label>
+                <button id="loginbtn">Login</button>
+            </form>
+        </div>
+    </header>
+
+    <section class="msg1">
+        <div id="msg1title">
+            Join the Fight Against Hunger with Our New Initiative
+        </div>
+        <div id="msg1para">
+            In India yearly ,377 Millions people go hungry, while 2 Lakh tones of perfectly good food goes to waste. Our
+            platform is here to change that. By connecting individuals, hotels, mess halls, and event organizers with
+            NGOs and local charities, we ensure surplus food reaches those who need it most instead of ending up in the
+            trash.
+            <br>
+            Whether it's leftover food from a celebration, excess from a hotel kitchen, or unserved meals at a community
+            event, you can make a difference. Simply share details of the surplus food on our platform, and we'll ensure
+            it gets to the right hands swiftly and safely.
+            <br>
+            Together, we can reduce food waste and bring hope to those who need it most. Your small step can create a
+            big impact. Let's ensure no one goes to bed hungry—join us in this meaningful mission today!
+        </div>
+    </section>
+
+    <section class="information">
+        <div id="aboutus">
+            <h2>About Us</h2>
+            <P>"Food Link bridges the gap between food surplus and hunger. We connect donors with NGOs to ensure no meal
+                goes to waste. Join us in creating a world where everyone gets to eat."</P>
+            <label for="aboutusbtn"></label>
+            <button id="aboutusbtn"> Know More >></button>
+        </div>
+        <div id="register">
+            <h2>Reduce Wastage</h2>
+            <p>"Millions of meals go to waste every day. Register your NGO to receive surplus food and help fight hunger
+                while reducing waste."</p>
+            <label for="registerbtn"></label>
+            <button id="registerbtn"> Register >> </button>
+        </div>
+        <div id="donateus">
+            <h2>Donate Us</h2>
+            <p>"Your support helps us fight hunger, reduce food waste, and reach more people in need. Donate food or
+                funds today to make a lasting impact!"</p>
+            <label for="donateusbtn"></label>
+            <button id="donateusbtn"> Donate >> </button>
+        </div>
+    </section>
+
+    <section class="msg2">
+        <div id="msg2title">
+            Why Should You Donate to our NGO for Food Drives?
+        </div>
+        <div id="msg2para">
+            Donating food to people in need is a small but crucial task in the fight against hunger and malnutrition.
+            Millions of people face food shortages daily, which makes it impossible to get the proper nutrition that is
+            required to live a healthy life. Food donation drives bring proper meals to the underprivileged who cannot
+            afford them or are unable to access them otherwise. A donation for food, in any form, also brings a sense of
+            satisfaction when you realize that today, you are the reason behind someone's smile. If you feel that you
+            are ready to spread some joy and wish to give back to society. You can explore our website for our food
+            donation campaigns.
+        </div>
+    </section>
+
+    <section class="statistics" >
+        <div>
+            <h2 id="sttitle">Food & Fund Statistics</h2>
+        </div>
+        <div class="number">
+            <div id="food">
+                <h3>Accepted Food Donations:</h3>
+                <h2 style="color: #f60;">
+                    <%= accepteddonations.length %>
+                </h2>
+            </div>
+            <div id="money">
+                <h3> Total Funds Collected:</h3>
+                <h2 style="color: #f60;">&#8377;12586</h2>
+            </div>
+            <div id="pending">
+                <h3>Available Food Donations:</h3>
+                <h2 style="color: #f60;">
+                    <%= availabledonations.length %>
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <footer class="Footer">
+        <div id="address">
+            <h3>Address</h3>
+            <p>Survey No. 27, Near Trimurti Chowk</p>
+            <P>Dhankwadi, Pune - 411043</P>
+            <p><i class="fa-solid fa-phone"></i> +91 20 24371101 </p>
+            <p>
+                <i class="fa-solid fa-map-location"></i>
+                <a href="https://maps.app.goo.gl/2JNF3bfGsngKYw6B7" id="gmap">Google Map</a>
+            </p>
+        </div>
+        <div id="Contact">
+            <h3>Contact Details</h3>
+            <p>Ajinkya Mote_22150</p>
+            <p>Sagar Mane_22147</p>
+            <p>Riddhiraj Kulkarni_22142</p>
+            <p>Mrunalinee Malapur_22146</p>
+        </div>
+        <div>
+            <h3>Social Media</h3>
+            <p>
+                <i class="fa-brands fa-instagram"></i>
+                <a href="https://www.instagram.com/" id="socialmedia">Instagram</a>
+            </p>
+            <p>
+                <i class="fa-brands fa-x-twitter"></i>
+                <a href="https://x.com/?lang=en" id="socialmedia">Twitter</a>
+            </p>
+            <p>
+                <i class="fa-brands fa-youtube"></i>
+                <a href="https://www.youtube.com/" id="socialmedia">Youtube</a>
+            </p>
+        </div>
+    </footer>
+    <script src="/JS/FoodLink.js"></script>
+</body>
+
+</html>

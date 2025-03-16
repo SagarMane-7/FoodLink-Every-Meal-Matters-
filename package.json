@@ -1,0 +1,28 @@
+{
+  "name": "fd",
+  "version": "1.0.0",
+  "description": "FoodLink",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "Sagar Mane-Patil",
+  "license": "ISC",
+  "dependencies": {
+    "@cashfreepayments/cashfree-js": "^1.0.5",
+    "axios": "^1.7.9",
+    "body-parser": "^1.20.3",
+    "cashfree-pg": "^4.3.10",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "mongoose": "^8.10.1",
+    "nodemon": "^3.1.9"
+  }
+}

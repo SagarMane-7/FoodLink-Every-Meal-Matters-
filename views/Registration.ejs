@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodLink-Register</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/CSS/Registration.css">
+</head>
+
+<body>
+    <div class="registerpage">
+        <form action="/Register" method="post" id="registerform">
+            <h1 for="title">Register</h1>
+            <input type="Text" placeholder="Enter Registerd NGO's Name Here" id="NGOname" name="NGOName">
+            <input type="Text" placeholder="Enter Society/Trust/Company Registration ID Here" id="trustID"
+                name="TrustID">
+            <input type="Text" placeholder="Enter NGO's PAN Number Here" id="PANID" name="PANID">
+            <input type="Text" placeholder="Enter NGO's DARPAN Registration ID Here (Optional)" id="DARPANID"
+                name="DARPANID">
+            <input type="Text" placeholder="Enter NGO's Address Here" id="address" name="Address">
+            <div class="mobile-container">
+                <select id="countrycode" name="CountryCode">
+                    <option value="+91">+91</option>
+                    <option value="+92">+92</option>
+                    <option value="+93">+93</option>
+                </select>
+                <input type="number" placeholder="Enter Mobile No." id="mobile" name="Mobile">
+            </div>
+            <input type="email" placeholder="Enter Email Here" id="email" name="Email">
+            <input type="Text" placeholder="Set Password" id="setpassword" name="Setpassword">
+            <input type="Text" placeholder="Confirm Password" id="confirmpassword" name="Confirmpassword">
+            <label for="registerbtn"></label>
+            <button id="registerbtn" name="Register" type="submit">Register</button>
+        </form>
+        <div>
+            <img src="/Images/Register.png" alt="Login" id="image">
+        </div>
+    </div>
+
+    <script src="/JS/Registration.js"></script>
+</body>
+
+</html>

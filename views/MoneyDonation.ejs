@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Donation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/MoneyDonation.css">
+    <!-- Cashfree SDK will be loaded dynamically -->
+</head>
+
+<body>
+    <div class="moneydonation">
+        <div class="tofooddonation">
+            <h2>Together, We Can!</h2>
+            <p>Your leftovers can be someone's lifeline! <br> Want to donate food?</p>
+            
+            <label for="tofoodbtn"></label>
+            <form action="/DonateFood">
+                <button id="tofoodbtn" name="Donate">Donate</button>
+            </form>
+            <a href="/" id="home">Return to Home Page</a>
+        </div>
+        <form action="/DonateMoney" id="moneydonationform" method="post">
+            <h1 id="mdtitle">Donate Money Here</h1>
+            <div>
+                <label for="mdfname"></label>
+                <input type="text" placeholder="First Name" id="mdfname" name="First_Name">
+                <label for="mdlname"></label>
+                <input type="text" placeholder="Last Name" id="mdlname" name="Last_Name">
+            </div>
+            <div>
+                <label for="mdmobile"></label>
+                <input type="number" placeholder="Mobile Number" id="mdmobile" name="Mobile_Number">
+                <label for="mdamount"></label>
+                <input type="number" placeholder="Enter Amount Here" id="mdamount" name="Amount">
+            </div>
+            <Div>
+                <label for="email"></label>
+                <input type="email" placeholder="Enter Email Here" id="email" name="Email">
+            </div>
+            <div>
+                <label for="mddonatebtn"></label>
+                <button id="mddonatebtn" name="Donate">Donate</button>
+            </div>
+            </div>
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    <script src="/js/MoneyDonation.js"></script>
+</body>
+
+</html>

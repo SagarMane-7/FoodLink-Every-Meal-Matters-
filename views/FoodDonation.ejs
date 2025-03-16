@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Donation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/FoodDonation.css">
+</head>
+
+<body>
+    <div class="fooddonation">
+        <form action="/DonateFood" id="fooddonationform" method="post">
+            <h1 id="fdtitle">Donate Food Here</h1>
+            <div>
+                <label for="fdfname"></label>
+                <input type="text" placeholder="First Name" id="fdfname" name="First_Name">
+                <label for="fdlname"></label>
+                <input type="text" placeholder="Last Name" id="fdlname" name="Last_Name">
+            </div>
+            <div>
+                <label for="fdmobile"></label>
+                <input type="number" placeholder="Mobile Number" id="fdmobile" name="Mobile">
+                <label for="fdemail"></label>
+                <input type="email" placeholder="Email" id="fdemail" name="Email">
+            </div>
+            <div>
+                <textarea type="text" placeholder="Enter Your Full Address Here:" id="fdaddress" name="Address"></textarea>
+            </div>
+            <div>
+                <div>
+                    <label for="Food_Category">Type:</label>
+                    <select name="Food_Category" id="Food_Category">
+                        <option value="select">Select</option>
+                        <option value="Veg">Veg</option>
+                        <option value="Non-Veg">Non-Veg</option>
+                        <option value="Frozen">Frozen</option>
+                    </select>
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="Donation_Date">
+                    <label for="time">Time:</label>
+                    <input type="time" id="time" name="Time">
+                </div>
+            </div>
+            <div>
+                <textarea placeholder="Enter the Description of the Food You Want to Donate:" id="fddescription"
+                    name="Description"></textarea>
+            </div>
+            <div>
+                <label for="fddonatebtn"></label>
+                <button id="fddonatebtn" name="Donate">Donate</button>
+            </div>
+        </form>
+        <div class="tomoneydonation">
+            <h2> Every Gift Counts!</h2>
+            <p>Your help is their hope.</p>
+            <p>Want to Donate Money?</p>
+            <form action="/DonateMoney">
+                <label for="tomoneybtn"></label>
+                <button id="tomoneybtn" name="Donate">Donate</button>
+            </form>
+            <a href="/" id="home">Return to Home Page</a>
+        </div>
+    </div>
+    <script src="/js/FoodDonation.js"></script>
+</body>
+
+</html>

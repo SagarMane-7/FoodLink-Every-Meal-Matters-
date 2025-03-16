@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodLink-Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/CSS/Login.css">
+</head>
+
+<body>
+    <div class="loginpage">
+        <div>
+            <img src="/Images/Login.png" alt="Login" id="image">
+        </div>
+        <form action="/Login" id="loginform" method="post">
+            <h1 for="title" style="color:#073B4C;">Login</h1>
+            <div>
+                <label for="username" style="color:#073B4C;">Username:</label>
+                <input type="Text" placeholder="Enter Username" id="username" name="Email">
+            </div>
+            <div>
+                <label for="password" style="color:#073B4C;">Password:</label>
+                <input type="password" placeholder="Enter Password" id="password" name="Password">
+            </div>
+            <div>
+                <label for="loginbtn"></label>
+                <button id="loginbtn" name="Login">Login</button>
+            </div>
+            <div style="color:#073B4C;">
+                "Not registered yet?"
+                <a href="Register" id="register">Register here</a>
+            </div>
+        </form>
+    </div>
+    </div>
+    <script src="/JS/Login.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/CSS/Dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <img id="logo" src="/images/Logo.png" alt="Logo">
+        <h2 id="title">Dashboard</h2>
+    </header>
+
+    <div id="container">
+        <div class="container1">
+            <nav class="sidebar">
+                <button id="dashboard">
+                    <i class="fa-solid fa-house"></i>
+                    <p>Dashboard</p>
+                </button>
+                <button id="profile">
+                    <i class="fa-solid fa-user"></i>
+                    <p>Profile</p>
+                </button>
+                <button id="history">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <p>History</p>
+                </button>
+                <button id="logout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <p>Logout</p>
+                </button>
+            </nav>
+            <div class="content">
+                <section class="notification">
+                    <div id="data">
+                        <h3 style="color: #f60;">New Donation Alert <i class="fa-solid fa-bell"></i></h3>
+
+                        <% if (availabledonations && availabledonations.length > 0) { %>
+                            <p>
+                                <%= availabledonations[availabledonations.length - 1].First_Name %>
+                                <%= availabledonations[availabledonations.length - 1].Last_Name %>
+                            </p>
+                            <p>
+                                <%= availabledonations[availabledonations.length - 1].Address %>
+                            </p>
+                        <% } else { %>
+                            <p>No new donations available.</p>
+                        <% } %>
+                    </div>
+                </section>
+                <section class="number">
+                    <div id="food">
+                        <h3>Total Food Donations:</h3>
+                        <h2 style="color: #f60;">
+                            <%= accepteddonations.length %>
+                        </h2>
+                    </div>
+                    <div id="money">
+                        <h3> Total Funds Collected:</h3>
+                        <h2 style="color: #f60;">&#8377;12586</h2>
+                    </div>
+                    <div id="pending">
+                        <h3>Available Food Donations:</h3>
+                        <h2 style="color: #f60;">
+                            <%= availabledonations.length %>
+                        </h2>
+                    </div>
+                </section>
+                <section class="available">
+                    <h3 style="color: #f60;">Available Meals Status </h3>
+                    <table id="availabletable">
+                        <tr>
+                            <th>Name</th>
+                            <th>Mobile Number</th>
+                            <th>Email</th>
+                            <th>Address</th>
+                            <th>Food Category</th>
+                            <th>Date and Time</th>
+                            <th>Description</th>
+                            <th>Action</th>
+                        </tr>
+                        <% for (const availabledonation of availabledonations ) { %>
+                            <tr>
+                                <td id="name">
+                                    <%= availabledonation.First_Name %>
+                                        <%= availabledonation.Last_Name %>
+                                </td>
+                                <td id="number">
+                                    <%= availabledonation.Mobile %>
+                                </td>
+                                <td id="email">
+                                    <%= availabledonation.Email %>
+                                </td>
+                                <td id="address">
+                                    <%= availabledonation.Address %>
+                                </td>
+                                <td id="category">
+                                    <%= availabledonation.Food_Category %>
+                                </td>
+                                <td id="date">
+                                    <%= availabledonation.Donation_Date %>
+                                        <%= availabledonation.Time %>
+                                </td>
+                                <td id="description">
+                                    <%= availabledonation.Description %>
+                                </td>
+                                <td id="action">
+                                    <form action="/accept-donation/<%= availabledonation._id %>" method="POST"
+                                        style="display: inline;">
+                                        <button type="submit" id="acceptbtn">Accept</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <% } %>
+                    </table>
+                </section>
+                <section class="accepted">
+                    <h3 style="color: #f60;">Accepted Meals Status</h3>
+                    <table id="acceptedtable">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Mobile Number</th>
+                                <th>Email</th>
+                                <th>Address</th>
+                                <th>Date and Time</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% if (accepteddonations.length> 0) { %>
+                                <% for (const accepteddonation of accepteddonations) { %>
+                                    <tr>
+                                        <td id="name">
+                                            <%= accepteddonation.First_Name %>
+                                                <%= accepteddonation.Last_Name %>
+                                        </td>
+                                        <td id="number">
+                                            <%= accepteddonation.Mobile %>
+                                        </td>
+                                        <td id="email">
+                                            <%= accepteddonation.Email %>
+                                        </td>
+                                        <td id="address">
+                                            <%= accepteddonation.Address %>
+                                        </td>
+                                        <td id="date">
+                                            <%= accepteddonation.Donation_Date %>
+                                                <%= accepteddonation.Time %>
+                                        </td>
+                                        <td id="status">
+                                            <button type="submit" id="pickedbtn">Picked Up</button>
+                                        </td>
+                                    </tr>
+                                    <% } %>
+                                        <% } else { %>
+                                            <tr>
+                                                <td colspan="7" style="text-align: center;">No accepted meals found.
+                                                </td>
+                                            </tr>
+                                            <% } %>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </div>
+
+        <footer class="Footer">
+            <div div="address">
+                <h3>Address</h3>
+                <p>Survey No. 27, Near Trimurti Chowk</p>
+                <P>Dhankwadi, Pune - 411043</P>
+                <p><i class="fa-solid fa-phone"></i> +91 20 24371101 </p>
+                <p>
+                    <i class="fa-solid fa-map-location"></i>
+                    <a href="https://maps.app.goo.gl/2JNF3bfGsngKYw6B7" id="gmap">Google Map</a>
+                </p>
+            </div>
+            <div id="Contact">
+                <h3>Contact Details</h3>
+                <p>Ajinkya Mote_22150</p>
+                <p>Sagar Mane_22147</p>
+                <p>Riddhiraj Kulkarni_22142</p>
+                <p>Mrunalinee Malapur_22146</p>
+            </div>
+            <div>
+                <h3>Social Media</h3>
+                <p>
+                    <i class="fa-brands fa-instagram"></i>
+                    <a href="https://www.instagram.com/" id="socialmedia">Instagram</a>
+                </p>
+                <p>
+                    <i class="fa-brands fa-x-twitter"></i>
+                    <a href="https://x.com/?lang=en" id="socialmedia">Twitter</a>
+                </p>
+                <p>
+                    <i class="fa-brands fa-youtube"></i>
+                    <a href="https://www.youtube.com/" id="socialmedia">Youtube</a>
+                </p>
+            </div>
+        </footer>
+        <script src="/js/Dashboard.js"> </script>
+</body>
+
+</html>
