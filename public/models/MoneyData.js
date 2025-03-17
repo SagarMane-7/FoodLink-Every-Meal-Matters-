@@ -41,6 +41,6 @@ const MoneyDonationSchema = new mongoose.Schema({
     }
 }, { timestamps: true });
 
-const MoneyDonation = mongoose.model("MoneyDonation", MoneyDonationSchema);
+const MoneyDonation = new mongoose.model("MoneyDonation", MoneyDonationSchema);
 
 module.exports = MoneyDonation;

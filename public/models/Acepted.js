@@ -13,5 +13,5 @@ const AcceptedDonationsSchema = new mongoose.Schema({
     Accepted_By: String
 });
 
-const AcceptedDonation = mongoose.model("AcceptedDonations", AcceptedDonationsSchema);
+const AcceptedDonation = new mongoose.model("AcceptedDonations", AcceptedDonationsSchema);
 module.exports = AcceptedDonation;

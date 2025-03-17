@@ -39,6 +39,6 @@ const FoodDonationSchema = new mongoose.Schema({
     }
 })
 
-const FoodDonation = mongoose.model("FoodDonation", FoodDonationSchema);
+const FoodDonation = new mongoose.model("FoodDonation", FoodDonationSchema);
 
 module.exports = FoodDonation;
