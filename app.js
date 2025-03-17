@@ -57,7 +57,7 @@ app.get("/", async(req, res) => {
   res.render("FoodLink.ejs",{accepteddonations,availabledonations});
 });
 
-app.get("/Login", (req, res) => {
+app.get("login", (req, res) => {
   res.render("Login.ejs");
 });
 
@@ -155,6 +155,12 @@ app.get("/dashboard", islogged, async (req, res) => {
   const accepteddonations = await AcceptedDonation.find({ Accepted_By: req.session.user })
   res.render('Dashboard.ejs', { availabledonations, accepteddonations: accepteddonations || [] });
 })
+
+app.get("/history", islogged, async (req, res) => {
+  const accepteddonations = await AcceptedDonation.find({ Accepted_By: req.session.user })
+  res.render('History.ejs', { availabledonations, accepteddonations: accepteddonations || [] });
+})
+
 
 app.get("/profile", islogged, async (req, res) => {
   const userEmail = req.session.user;
