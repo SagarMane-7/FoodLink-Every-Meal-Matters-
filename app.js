@@ -57,7 +57,7 @@ app.get("/", async(req, res) => {
   res.render("FoodLink.ejs",{accepteddonations,availabledonations});
 });
 
-app.get("login", (req, res) => {
+app.get("Login", (req, res) => {
   res.render("Login.ejs");
 });
 
