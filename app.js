@@ -29,8 +29,13 @@ app.listen(port, () => {
   console.log(`App is listening on ${port}`);
 });
 
-require('dotenv').config();
-mongoose.connect(process.env.MONGO_URL)
+mongoose.connect(process.env.MONGO_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}).then(() => {
+  console.log("✅ MongoDB connected successfully.");
+});
+
 
 // Middleware
 
