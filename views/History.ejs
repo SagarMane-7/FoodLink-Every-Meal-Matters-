@@ -14,9 +14,8 @@
 <body>
     <header class="header">
         <img id="logo" src="/images/Logo.png" alt="Logo">
-        <h2 id="title">Profile</h2>
+        <h2 id="title">History</h2>
     </header>
-
     <div id="container">
         <div class="container1">
             <nav class="sidebar">
@@ -37,85 +36,88 @@
                     <p>Logout</p>
                 </button>
             </nav>
-            <section class="accepted">
-                <h3 style="color: #f60;">Previous Donations</h3>
-                <table id="acceptedtable">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Mobile Number</th>
-                            <th>Email</th>
-                            <th>Address</th>
-                            <th>Date and Time</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% if (accepteddonations.length> 0) { %>
-                            <% for (const accepteddonation of accepteddonations) { %>
-                                <tr>
-                                    <td id="name">
-                                        <%= accepteddonation.First_Name %>
-                                            <%= accepteddonation.Last_Name %>
-                                    </td>
-                                    <td id="number">
-                                        <%= accepteddonation.Mobile %>
-                                    </td>
-                                    <td id="email">
-                                        <%= accepteddonation.Email %>
-                                    </td>
-                                    <td id="address">
-                                        <%= accepteddonation.Address %>
-                                    </td>
-                                    <td id="date">
-                                        <%= accepteddonation.Donation_Date %>
-                                            <%= accepteddonation.Time %>
-                                    </td>
-                                <% } %>
-                                    <% } else { %>
-                                        <tr>
-                                            <td colspan="7" style="text-align: center;">No accepted meals found.
-                                            </td>
-                                        </tr>
-                                        <% } %>
-                    </tbody>
-                </table>
-            </section>
+            <div class="content">
+                <section class="accepted">
+                    <h3 style="color: #f60;">Accepted Meals Status</h3>
+                    <table id="acceptedtable">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Mobile Number</th>
+                                <th>Email</th>
+                                <th>Address</th>
+                                <th>Date and Time</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% if (accepteddonations.length> 0) { %>
+                                <% for (const accepteddonation of accepteddonations) { %>
+                                    <tr>
+                                        <td id="name">
+                                            <%= accepteddonation.First_Name %>
+                                                <%= accepteddonation.Last_Name %>
+                                        </td>
+                                        <td id="number">
+                                            <%= accepteddonation.Mobile %>
+                                        </td>
+                                        <td id="email">
+                                            <%= accepteddonation.Email %>
+                                        </td>
+                                        <td id="address">
+                                            <%= accepteddonation.Address %>
+                                        </td>
+                                        <td id="date">
+                                            <%= accepteddonation.Donation_Date %>
+                                                <%= accepteddonation.Time %>
+                                        </td>
+                                    </tr>
+                                    <% } %>
+                                        <% } else { %>
+                                            <tr>
+                                                <td colspan="7" style="text-align: center;">No accepted meals found.
+                                                </td>
+                                            </tr>
+                                            <% } %>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
         </div>
-    </div>
-    <footer class="Footer">
-        <div div="address">
-            <h3>Address</h3>
-            <p>Survey No. 27, Near Trimurti Chowk</p>
-            <P>Dhankwadi, Pune - 411043</P>
-            <p><i class="fa-solid fa-phone"></i> +91 20 24371101 </p>
-            <p>
-                <i class="fa-solid fa-map-location"></i>
-                <a href="https://maps.app.goo.gl/2JNF3bfGsngKYw6B7" id="gmap">Google Map</a>
-            </p>
-        </div>
-        <div id="Contact">
-            <h3>Contact Details</h3>
-            <p>Ajinkya Mote_22150</p>
-            <p>Sagar Mane_22147</p>
-            <p>Riddhiraj Kulkarni_22142</p>
-            <p>Mrunalinee Malapur_22146</p>
-        </div>
-        <div>
-            <h3>Social Media</h3>
-            <p>
-                <i class="fa-brands fa-instagram"></i>
-                <a href="https://www.instagram.com/" id="socialmedia">Instagram</a>
-            </p>
-            <p>
-                <i class="fa-brands fa-x-twitter"></i>
-                <a href="https://x.com/?lang=en" id="socialmedia">Twitter</a>
-            </p>
-            <p>
-                <i class="fa-brands fa-youtube"></i>
-                <a href="https://www.youtube.com/" id="socialmedia">Youtube</a>
-            </p>
-        </div>
-    </footer>
+        <footer class="Footer">
+            <div div="address">
+                <h3>Address</h3>
+                <p>Survey No. 27, Near Trimurti Chowk</p>
+                <P>Dhankwadi, Pune - 411043</P>
+                <p><i class="fa-solid fa-phone"></i> +91 20 24371101 </p>
+                <p>
+                    <i class="fa-solid fa-map-location"></i>
+                    <a href="https://maps.app.goo.gl/2JNF3bfGsngKYw6B7" id="gmap">Google Map</a>
+                </p>
+            </div>
+            <div id="Contact">
+                <h3>Contact Details</h3>
+                <p>Ajinkya Mote_22150</p>
+                <p>Sagar Mane_22147</p>
+                <p>Riddhiraj Kulkarni_22142</p>
+                <p>Mrunalinee Malapur_22146</p>
+            </div>
+            <div>
+                <h3>Social Media</h3>
+                <p>
+                    <i class="fa-brands fa-instagram"></i>
+                    <a href="https://www.instagram.com/" id="socialmedia">Instagram</a>
+                </p>
+                <p>
+                    <i class="fa-brands fa-x-twitter"></i>
+                    <a href="https://x.com/?lang=en" id="socialmedia">Twitter</a>
+                </p>
+                <p>
+                    <i class="fa-brands fa-youtube"></i>
+                    <a href="https://www.youtube.com/" id="socialmedia">Youtube</a>
+                </p>
+            </div>
+        </footer>
     <script src="/js/History.js"></script>
 </body>
 

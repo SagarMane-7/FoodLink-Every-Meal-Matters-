@@ -1,3 +1,4 @@
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -65,6 +66,7 @@ body {
 .container {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 .header {
@@ -105,8 +107,6 @@ body {
 .container1 {
     display: flex;
     align-items: flex-start;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
 .sidebar {
@@ -194,6 +194,7 @@ body {
     justify-content: space-evenly;
     align-content: center;
     text-align: center;
+    gap: 30px;
     margin-top: 30px;
     padding: 20px;
     box-sizing: border-box;
@@ -217,25 +218,20 @@ body {
     height: 80px;
 }
 
-#category {
-    width: 120px;
-}
 
 #date {
     width: 150px;
 }
 
-#description {
-    width: 300px;
-    height: 80px;
-}
-
 .accepted {
     height: auto;
-    width: 1300px;
+    width: 1080px;
     color: #073B4C;
     border-radius: 20px;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
     overflow: visible;
     margin: 20px auto;
     animation: fadeInUp 1.5s ease;
@@ -278,6 +274,7 @@ body {
     background: linear-gradient(135deg, #073B4C, #38A3A5);
     display: flex;
     justify-content: space-around;
+    margin-top: 30px;
 }
 
 #socialmedia,
