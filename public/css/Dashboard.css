@@ -109,7 +109,7 @@ body {
 }
 
 .sidebar {
-    height: 100%;
+    height: 100vh;
     width: 100px;
     background: linear-gradient(135deg, #073B4C, #38A3A5);
     display: flex;
@@ -470,31 +470,5 @@ body {
 #pickedbtn:hover {
     color: #073B4C;
     background-color: #FFD166;
-    transform: scale(1.05);
-}
-
-.Footer {
-    height: 200px;
-    width: 100%;
-    color: white;
-    background: linear-gradient(135deg, #073B4C, #38A3A5);
-    display: flex;
-    justify-content: space-around;
-    margin-top: 30px;
-}
-
-#socialmedia,
-#gmap {
-    color: white;
-    text-decoration: none;
-}
-
-#socialmedia:hover {
-    color: #FFD166;
-    transform: scale(1.05);
-}
-
-#gmap:hover {
-    color: #FFD166;
     transform: scale(1.05);
 }
