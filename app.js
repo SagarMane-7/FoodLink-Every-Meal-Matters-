@@ -24,21 +24,13 @@ app.use(session({
   cookie: { secure: false }
 }));
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 1000;
 app.listen(port, () => {
   console.log(`App is listening on ${port}`);
 });
 
-async function main() {
-  await mongoose.connect(process.env.MONGO_URL)
-}
-
-main()
-  .then(() => {
-    console.log("connection successful");
-  })
-  .catch((err) => console.log(err));
-
+require('dotenv').config();
+mongoose.connect(process.env.MONGO_URL)
 
 // Middleware
 
