@@ -1,6 +1,3 @@
-/* FoodLink.css - Main styling for the FoodLink application */
-
-/* Define animations */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -63,11 +60,6 @@ body {
     background-color: #F8F9FA;
     color: #073B4C;
     animation: fadeIn 1s ease-in-out;
-}
-
-h1, h2, h3, h4, h5, h6, #title, #subtitle, .header h2, button {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
 }
 
 .header {

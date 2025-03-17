@@ -57,7 +57,7 @@ app.get("/", async(req, res) => {
   res.render("FoodLink.ejs",{accepteddonations,availabledonations});
 });
 
-app.get("Login", (req, res) => {
+app.get("/Login", (req, res) => {
   res.render("Login.ejs");
 });
 
@@ -158,7 +158,7 @@ app.get("/dashboard", islogged, async (req, res) => {
 
 app.get("/history", islogged, async (req, res) => {
   const accepteddonations = await AcceptedDonation.find({ Accepted_By: req.session.user })
-  res.render('History.ejs', { availabledonations, accepteddonations: accepteddonations || [] });
+  res.render('History.ejs', { accepteddonations: accepteddonations || [] });
 })
 
 

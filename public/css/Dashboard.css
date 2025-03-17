@@ -1,6 +1,4 @@
-/* Dashboard.css - Styling for the Dashboard page */
 
-/* Define animations */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -223,7 +221,7 @@ body {
 }
 
 #data {
-    height: 165px;
+    height: 225px;
     width: 475px;
     border: 2px #38A3A5 solid;
     border-radius: 20px;

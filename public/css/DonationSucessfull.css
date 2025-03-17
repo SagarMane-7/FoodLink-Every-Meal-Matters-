@@ -1,6 +1,3 @@
-/* DonationSucessfull.css - Styling for the Donation Successful page */
-
-/* Define animations */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -110,7 +107,3 @@ body {
     transform: scale(1.05);
 }
 
-h1, h2, h3, h4, h5, h6, #title, #subtitle, .header h2, button {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-}
