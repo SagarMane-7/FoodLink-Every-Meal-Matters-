@@ -395,7 +395,7 @@ h1, h2, h3, h4, h5, h6, #title, #subtitle, .header h2, button {
     height: 175px;
     width: 225px;
     color: #073B4C;;
-    border: 2px #073B4C solid;
+    border: 2px #38A3A5 solid;
     border-radius: 25px;
     box-shadow:
         -5px 5px 5px rgba(0, 0, 0, 0.2),
@@ -407,7 +407,7 @@ h1, h2, h3, h4, h5, h6, #title, #subtitle, .header h2, button {
     height: 175px;
     width: 225px;
     color: #073B4C;
-    border: 2px #073B4C solid;
+    border: 2px #38A3A5 solid;
     border-radius: 25px;
     box-shadow:
         -5px 5px 5px rgba(0, 0, 0, 0.2),
@@ -419,7 +419,7 @@ h1, h2, h3, h4, h5, h6, #title, #subtitle, .header h2, button {
     height: 175px;
     width: 225px;
     color: #073B4C;
-    border: 2px #073B4C solid;
+    border: 2px #38A3A5 solid;
     border-radius: 25px;
     box-shadow:
         -5px 5px 5px rgba(0, 0, 0, 0.2),
