@@ -10,8 +10,6 @@ const FoodDonation = require("./public/models/FoodData.js");
 const MoneyDonation = require("./public/models/MoneyData.js");
 const AcceptedDonation = require("./public/models/Acepted.js");
 
-
-
 app.use(express.json());
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
