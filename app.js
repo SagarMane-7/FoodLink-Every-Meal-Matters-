@@ -52,8 +52,8 @@ const islogged = (req, res, next) => {
 
 app.get("/", async(req, res) => {
   req.session.destroy();
-  const accepteddonations = await AcceptedDonation.find()
-  const availabledonations = await FoodDonation.find();
+  const accepteddonations = await AcceptedDonation.find() ||  [];
+  const availabledonations = await FoodDonation.find() || [];
   res.render("FoodLink.ejs",{accepteddonations,availabledonations});
 });
 
@@ -61,7 +61,7 @@ app.get("/Login", (req, res) => {
   res.render("Login.ejs");
 });
 
-app.get("/Register", (req, res) => {
+app.get("/Register", async (req, res) => {
   res.render("Registration.ejs");
 });
 
@@ -105,9 +105,10 @@ app.post("/Register", async (req, res) => {
 
   await Registered.save();
   console.log("Registerd Sucessfully.")
-  res.render("FoodLink.ejs");
-});
-
+  const accepteddonations = await AcceptedDonation.find() ||  [];
+  const availabledonations = await FoodDonation.find() || [];
+  res.render("FoodLink.ejs",{accepteddonations,availabledonations});
+})
 
 app.post("/DonateFood", async (req, res) => {
 
@@ -191,24 +192,66 @@ app.post('/accept-donation/:id', islogged, async (req, res) => {
 
   await acceptedDonation.save();
   await FoodDonation.findByIdAndDelete(donationId);
+  res.redirect("/dashboard");
+  const profiles = await Registration.findOne({ Email: req.session.user });
 
-  // To Donor
+  //To NGO
   sendEmail(
     availabledonation.Email,
-    "🎉 Your Donation is Accepted!",
-    `<p>Hello ${availabledonation.First_Name},</p>
-    <p>Your food donation has been accepted by an NGO on FoodLink!</p>
-    <p>Thank you for your generous contribution.</p>`
+    "Your Food Donation Has Been Accepted!",
+    `
+  <p>Dear ${availabledonation.First_Name} ${availabledonation.Last_Name},</p>
+  
+  <p>Thank you for your generous food donation through <strong>FoodLink</strong>.</p>
+  
+  <p>We're happy to inform you that your donation has been accepted by the following NGO:</p>
+  
+  <p><strong>NGO Details:</strong><br>
+  Name: ${profiles.NGOName}<br>
+  Mobile: ${profiles.Mobile}<br>
+  Email: ${profiles.Email}</p>
+  
+  <p><strong>Donation Details:</strong><br>
+  Food Category: ${availabledonation.Food_Category}<br>
+  Pickup Address: ${availabledonation.Address}<br>
+  Preferred Time: ${availabledonation.Time} on ${availabledonation.Donation_Date}<br>
+  Description: ${availabledonation.Description}</p>
+  
+  <p>The NGO will contact you shortly to arrange the pickup.</p>
+  
+  <p>We sincerely appreciate your support in helping us reduce food waste and feed those in need.</p>
+  
+  <p>– Team FoodLink</p>
+  `
   );
-
+  
   // To NGO
   sendEmail(
     req.session.user,
-    "✅ Donation Accepted",
-    `<p>You have accepted a donation from ${availabledonation.First_Name}.</p>
-    <p>Pickup Address: ${availabledonation.Address}</p>`
+    "You Accepted a Food Donation via FoodLink",
+    `
+  <p>Dear ${profiles.NGOName},</p>
+  
+  <p>You have successfully accepted a food donation through <strong>FoodLink</strong>.</p>
+  
+  <p><strong>Donor Details:</strong><br>
+  Name: ${availabledonation.First_Name} ${availabledonation.Last_Name}<br>
+  Mobile: ${availabledonation.Mobile}<br>
+  Email: ${availabledonation.Email}</p>
+  
+  <p><strong>Donation Details:</strong><br>
+  Food Category: ${availabledonation.Food_Category}<br>
+  Pickup Address: ${availabledonation.Address}<br>
+  Preferred Time: ${availabledonation.Time} on ${availabledonation.Donation_Date}<br>
+  Description: ${availabledonation.Description}</p>
+  
+  <p>Please contact the donor to coordinate the pickup.</p>
+  
+  <p>Thank you for being an active part of FoodLink and supporting our mission.</p>
+  
+  <p>– Team FoodLink</p>
+  `
   );
-
-  // ✅ Redirection comes last
-  res.redirect("/dashboard");
+  
+ 
 });
