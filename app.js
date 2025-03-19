@@ -33,7 +33,7 @@ mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then(() => {
-  console.log("✅ MongoDB connected successfully.");
+  console.log("MongoDB connected successfully.");
 });
 
 
