@@ -9,6 +9,8 @@ const Registration = require("./public/models/RegistrationData.js");
 const FoodDonation = require("./public/models/FoodData.js");
 const MoneyDonation = require("./public/models/MoneyData.js");
 const AcceptedDonation = require("./public/models/Acepted.js");
+const sendEmail = require("./public/models/email.js");
+
 
 app.use(express.json());
 app.set('view engine', 'ejs');
@@ -69,10 +71,6 @@ app.get("/DonateFood", (req, res) => {
 
 app.get("/DonateMoney", (req, res) => {
   res.render("MoneyDonation.ejs");
-});
-
-app.get("*", (req, res) => {
-  res.render("404.ejs");
 });
 
 
@@ -170,12 +168,11 @@ app.get("/profile", islogged, async (req, res) => {
   res.render("Profile.ejs", { profiles });
 })
 
-app.post('/accept-donation/:id',islogged, async (req, res) => {
+app.post('/accept-donation/:id', islogged, async (req, res) => {
   const donationId = new mongoose.Types.ObjectId(req.params.id);
   const availabledonation = await FoodDonation.findById(donationId).lean();
 
   if (!availabledonation) {
-    console.log("Donation not found!");
     return res.status(404).send("Donation not found...");
   }
 
@@ -189,10 +186,29 @@ app.post('/accept-donation/:id',islogged, async (req, res) => {
     Donation_Date: availabledonation.Donation_Date,
     Time: availabledonation.Time,
     Description: availabledonation.Description,
-    Accepted_By:req.session.user
+    Accepted_By: req.session.user
   });
 
   await acceptedDonation.save();
   await FoodDonation.findByIdAndDelete(donationId);
+
+  // To Donor
+  sendEmail(
+    availabledonation.Email,
+    "🎉 Your Donation is Accepted!",
+    `<p>Hello ${availabledonation.First_Name},</p>
+    <p>Your food donation has been accepted by an NGO on FoodLink!</p>
+    <p>Thank you for your generous contribution.</p>`
+  );
+
+  // To NGO
+  sendEmail(
+    req.session.user,
+    "✅ Donation Accepted",
+    `<p>You have accepted a donation from ${availabledonation.First_Name}.</p>
+    <p>Pickup Address: ${availabledonation.Address}</p>`
+  );
+
+  // ✅ Redirection comes last
   res.redirect("/dashboard");
 });
