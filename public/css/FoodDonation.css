@@ -367,26 +367,27 @@ input[type="number"]::-webkit-outer-spin-button {
 
     #fdaddress,
     #fddescription {
-        width: 225px;
+        width: 210px;
+        height: 70px;
     }
 
     #fdfname,
     #fdlname,
     #fdmobile,
     #fdemail {
-        width: 110px;
+        width: 100px;
     }
 
     #Food_Category {
-        width: 199px;
+        width: 210px;
         font-size: 15px;
     }
     #date {
-        width: 110px;
+        width: 125px;
         margin-top: 15px;
     }
     #time {
-        width: 60px;
+        width: 85px;
         margin-top: 15px;
     }
 
