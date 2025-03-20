@@ -272,3 +272,20 @@ input[type="number"]::-webkit-outer-spin-button {
     margin: 0;
 }
 
+@media (max-width: 480px) {
+    .moneydonation{
+        font-size: 10px;
+    }
+    .tofooddonation {
+        height: 475px;
+        width: 180px;
+    }
+    #moneydonationform {
+        height: 473px;
+        width: 245px;
+    }
+    #email {
+        height: 35px;
+    }
+}
+

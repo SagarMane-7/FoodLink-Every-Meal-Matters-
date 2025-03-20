@@ -350,3 +350,51 @@ input[type="number"]::-webkit-outer-spin-button {
     margin: 0;
 }
 
+@media (max-width: 480px) {
+    .fooddonation {
+        font-size: 10px;
+    }
+
+    #fooddonationform {
+        height: 700px;
+        width: 290px;
+    }
+
+    .tomoneydonation {
+        height: 700px;
+        width: 130px;
+    }
+
+    #fdaddress,
+    #fddescription {
+        width: 225px;
+    }
+
+    #fdfname,
+    #fdlname,
+    #fdmobile,
+    #fdemail {
+        width: 110px;
+    }
+
+    #Food_Category {
+        width: 199px;
+        font-size: 15px;
+    }
+    #date {
+        width: 110px;
+        margin-top: 15px;
+    }
+    #time {
+        width: 60px;
+        margin-top: 15px;
+    }
+
+    #fddonatebtn {
+        width: 87px;
+    }
+    #tomoneybtn{
+        width: 75px;
+    }
+}
+
