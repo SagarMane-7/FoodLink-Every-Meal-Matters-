@@ -73,11 +73,6 @@ app.get("/DonateMoney", (req, res) => {
   res.render("MoneyDonation.ejs");
 });
 
-app.get("*", (req, res) => {
-  res.render("404.ejs");
-});
-
-
 
 app.post("/Login", async (req, res) => {
   const { Email, Password } = req.body;
@@ -178,9 +173,6 @@ app.post('/accept-donation/:id', islogged, async (req, res) => {
   const donationId = new mongoose.Types.ObjectId(req.params.id);
   const availabledonation = await FoodDonation.findById(donationId).lean();
 
-  if (!availabledonation) {
-    return res.status(404).send("Donation not found...");
-  }
 
   const acceptedDonation = new AcceptedDonation({
     First_Name: availabledonation.First_Name,
