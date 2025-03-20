@@ -63,14 +63,13 @@ body {
 }
 
 .header {
-    height: 170px;
+    height: auto;
     width: 100%;
     background: linear-gradient(135deg, #38A3A5, #073B4C);
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     color: white;
-    padding: 0 20px;
     box-sizing: border-box;
 }
 
@@ -126,7 +125,7 @@ body {
 }
 
 .msg1 {
-    height: 390px;
+    height: auto;
     width: 100%;
     text-align: center;
     font-size: 35px;
@@ -134,7 +133,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0;
     background-image: url(/images/DonationBackground.avif);
     background-size: cover;
     background-position: center;
@@ -202,7 +200,7 @@ body {
 }
 
 .information {
-    height: 400px;
+    height: auto;
     width: 100%;
     text-align: center;
     display: flex;
@@ -338,7 +336,7 @@ body {
 }
 
 .msg2 {
-    height: 310px;
+    height: auto;
     width: 100%;
     text-align: center;
     display: flex;
@@ -367,7 +365,7 @@ body {
 
 .statistics{
     text-align: center;
-    height: 250px;
+    height: auto;
 }
 
 #sttitle {
@@ -420,7 +418,7 @@ body {
 }
 
 .Footer {
-    height: 225px;
+    height: auto;
     width: 100%;
     color: white;
     background: linear-gradient(135deg, #073B4C, #38A3A5);
@@ -443,4 +441,78 @@ body {
 #gmap:hover {
     color: #FFD166;
     transform: scale(1.05);
+}
+
+@media (max-width: 480px) {
+    .information {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        height: 1300px;
+    }
+
+    #title {
+        font-size: 35px;
+    }
+
+    #subtitle {
+        font-size: 16px;
+    }
+
+    #loginbtn {
+        font-size: 18px;
+        width: 60px;
+    }
+
+    .msg1 {
+        font-size: 28px;
+        padding-bottom: 10px; 
+    }
+
+    #msg1para {
+        font-size: 16px;
+    }
+
+    #msg2title {
+        font-size: 30px;
+    }
+
+    #msg2para {
+        font-size: 18px; 
+    }
+
+    .number {
+        font-size: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        height: 400px;    
+    }
+
+    #food, #money, #pending {
+        width: 150px;
+        height: 120px;
+    }
+
+    .header {
+        max-width: 500px;
+        padding: 0px 0px 0px 0px;
+        width: 500px;
+    }
+    .Footer {
+        font-size: 10px;
+    }
+
+    #logo {
+        width: 50px;
+        margin-left: 0px;
+    }
+
+    #titlediv {
+        padding-left: 5px;
+        margin-left: 100px;
+    }
+    
 }
