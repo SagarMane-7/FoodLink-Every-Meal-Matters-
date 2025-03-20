@@ -16,3 +16,10 @@ DonateUS.addEventListener('click', function (event) {
     window.location.href = '/DonateFood'
 });
 
+aboutusbtn
+
+let aboutus = document.querySelector("#aboutusbtn");
+aboutus.addEventListener('click', function (event) {
+    event.preventDefault();
+    window.location.href = '/aboutus'
+});

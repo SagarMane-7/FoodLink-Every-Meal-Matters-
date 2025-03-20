@@ -265,3 +265,9 @@ body {
 #acceptedtable tr:hover {
     background-color: #F8F9FA;
 }
+
+@media (max-width: 480px) {
+    #profiledata{
+        width: 275px;
+    }
+}

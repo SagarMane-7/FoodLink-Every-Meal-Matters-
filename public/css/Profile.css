@@ -216,3 +216,8 @@ body {
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
+@media (max-width: 480px) {
+    #profiledata{
+        width: 275px;
+    }
+}

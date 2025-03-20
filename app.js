@@ -61,6 +61,10 @@ app.get("/Login", (req, res) => {
   res.render("Login.ejs");
 });
 
+app.get("/aboutus", (req, res) => {
+  res.render("Aboutus.ejs");
+});
+
 app.get("/Register", async (req, res) => {
   res.render("Registration.ejs");
 });
