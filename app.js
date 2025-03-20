@@ -80,16 +80,22 @@ app.get("/DonateMoney", (req, res) => {
 
 app.post("/Login", async (req, res) => {
   const { Email, Password } = req.body;
+
   const UserName = await Registration.findOne({ Email });
+
   if (UserName && UserName.Setpassword === Password) {
     req.session.user = Email;
-    console.log("Logged in Sucessfully.")
+    console.log("Logged in Successfully.");
+
     const availabledonations = await FoodDonation.find();
-    const accepteddonations = await AcceptedDonation.find({ Accepted_By: req.session.user })
-    res.render('Dashboard.ejs', { availabledonations, accepteddonations: accepteddonations || [] });
+  const accepteddonations = await AcceptedDonation.find({ Accepted_By: req.session.user })
+  res.render('Dashboard.ejs', { availabledonations, accepteddonations: accepteddonations || [] });
+  } else {
+    console.log("Invalid Email or Password.");
+    res.redirect("/Login"); 
   }
-}
-);
+});
+
 
 app.post("/Register", async (req, res) => {
 
@@ -161,17 +167,19 @@ app.get("/dashboard", islogged, async (req, res) => {
   res.render('Dashboard.ejs', { availabledonations, accepteddonations: accepteddonations || [] });
 })
 
-app.get("/history", islogged, async (req, res) => {
-  const accepteddonations = await AcceptedDonation.find({ Accepted_By: req.session.user })
-  res.render('History.ejs', { accepteddonations: accepteddonations || [] });
-})
-
-
 app.get("/profile", islogged, async (req, res) => {
+  console.log("Session User:", req.session.user);
   const userEmail = req.session.user;
   const profiles = await Registration.findOne({ Email: userEmail });
   res.render("Profile.ejs", { profiles });
-})
+});
+
+app.get("/history", islogged, async (req, res) => {
+  console.log("Session User:", req.session.user);
+  const accepteddonations = await AcceptedDonation.find({ Accepted_By: req.session.user });
+  res.render('History.ejs', { accepteddonations: accepteddonations || [] });
+});
+
 
 app.post('/accept-donation/:id', islogged, async (req, res) => {
   const donationId = new mongoose.Types.ObjectId(req.params.id);
@@ -193,7 +201,9 @@ app.post('/accept-donation/:id', islogged, async (req, res) => {
 
   await acceptedDonation.save();
   await FoodDonation.findByIdAndDelete(donationId);
-  res.redirect("/dashboard");
+  const availabledonations = await FoodDonation.find();
+  const accepteddonations = await AcceptedDonation.find({ Accepted_By: req.session.user })
+  res.render('Dashboard.ejs', { availabledonations, accepteddonations: accepteddonations || [] });
   const profiles = await Registration.findOne({ Email: req.session.user });
 
   //To NGO
