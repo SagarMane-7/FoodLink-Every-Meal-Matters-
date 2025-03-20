@@ -73,6 +73,11 @@ app.get("/DonateMoney", (req, res) => {
   res.render("MoneyDonation.ejs");
 });
 
+app.get("*", (req, res) => {
+  res.render("404.ejs");
+});
+
+
 
 app.post("/Login", async (req, res) => {
   const { Email, Password } = req.body;
