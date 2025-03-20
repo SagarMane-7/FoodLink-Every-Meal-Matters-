@@ -201,7 +201,7 @@ body {
 }
 
 .notification {
-    height: 225px;
+    height:auto;
     width: 100%;
     color: #f60;
     display: flex;
@@ -218,7 +218,7 @@ body {
 }
 
 #data {
-    height: 225px;
+    height: auto;
     width: 475px;
     border: 2px #38A3A5 solid;
     border-radius: 20px;
@@ -239,12 +239,11 @@ body {
 }
 
 .number {
-    height: 115px;
+    height: auto;
     width: 525px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin-top: 65px;
 }
 
 #food {
@@ -471,4 +470,51 @@ body {
     color: #073B4C;
     background-color: #FFD166;
     transform: scale(1.05);
+}
+
+@media (max-width: 480px) {
+    .header {
+        width: 675px;
+        max-width: 675px;
+    }
+    #container{
+        width: 480px;
+        max-width: 480px;
+        font-size: 10px;
+    }
+    #data{
+        width: 120px;
+    }
+    .notification h3 {
+        font-size: 13px;
+    }
+    .number{
+        height: 325px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-content: center;
+    }
+    #food,#money,#pending {
+        height: auto;
+        width: 85px;
+    }
+    .available {
+        width: 480px;
+    }
+
+    #availabletable {
+        width: 450px;
+    }
+
+    #availabletable th,
+    #availabletable td {
+        font-size: 5px;;
+        width: 40px;
+    }
+
+    #acceptbtn {
+        width: 60px;
+        font-size: 10px;
+    }
 }
