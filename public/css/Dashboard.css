@@ -391,10 +391,6 @@ body {
     justify-content: space-around;
 }
 
-#status {
-    width: 120px;
-}
-
 #acceptbtn {
     height: 25px;
     width: 60px;
@@ -481,19 +477,17 @@ body {
         width: 480px;
         max-width: 480px;
         font-size: 10px;
+        display: flex;
+        justify-content: center;
     }
     #data{
-        width: 120px;
+        width: 175px;
     }
     .notification h3 {
         font-size: 13px;
     }
     .number{
-        height: 325px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-content: center;
+        height: 75px;
     }
     #food,#money,#pending {
         height: auto;
@@ -509,9 +503,49 @@ body {
 
     #availabletable th,
     #availabletable td {
-        font-size: 5px;;
+        font-size: 10px;;
         width: 40px;
     }
+
+    #name {
+        width: 50px;
+    }
+    
+    #number {
+        width: 20px;
+    }
+    
+    #email {
+        width: 20px;
+    }
+    
+    #address {
+        width: 30px;
+        height: 80px;
+    }
+    
+    #category {
+        width: 12px;
+    }
+    
+    #date {
+        width: 15px;
+    }
+    
+    #description {
+        width: 30px;
+        height: 80px;
+    }
+    
+    #action {
+        height: 80px;
+        width: 90px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+    }
+    
 
     #acceptbtn {
         width: 60px;
