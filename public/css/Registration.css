@@ -63,7 +63,7 @@ body {
 }
 
 .registerpage {
-    min-height: 100vh;
+    height: 100%;
     width: 100%;
     background: linear-gradient(135deg, #073B4C, #38A3A5);
     display: flex;
@@ -83,8 +83,6 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     animation: slideInLeft 1s ease;
-    object-fit: cover;
-    max-width: 100%;
 }
 
 #registerform {
@@ -216,7 +214,6 @@ body {
     align-items: center;
     gap: 10px;
     width: 345px;
-    max-width: 90%;
     box-sizing: border-box;
 }
 
@@ -341,10 +338,20 @@ input[type="number"]::-webkit-outer-spin-button {
     margin: 0;
 }
 
-@media (max-width: 500px)
+@media (max-width: 480px)
 
 {
     #image {
         height: 0px;
     }
+    .registerpage{
+        width: 500px;
+        max-width: 500px;
+        height: 1150px;
+    }
+
+    #mobile{
+        width: 150px;
+    }
+
 }
