@@ -63,7 +63,7 @@ body {
 }
 
 .fooddonation {
-    min-height: 100vh;
+    height: 600px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -73,11 +73,10 @@ body {
     padding: 60px 20px;
     box-sizing: border-box;
     flex-wrap: wrap;
-    gap: 0;
 }
 
 .tomoneydonation {
-    height: 500px;
+    height: 600px;
     width: 290px;
     font-size: 20px;
     background: linear-gradient(135deg, #073B4C, #38A3A5);
@@ -112,8 +111,15 @@ body {
     transform: scale(1.05);
 }
 
+#insturction{
+    display: flex;
+    justify-content: center;
+    color:  #FF0000;
+}
+
+
 #fooddonationform {
-    height: 500px;
+    height: 600px;
     width: 500px;
     color: #073B4C;
     background-color: #ffffff;
