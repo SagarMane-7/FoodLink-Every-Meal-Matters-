@@ -443,7 +443,7 @@ body {
     transform: scale(1.05);
 }
 
-@media (max-width: 450px) {
+@media (max-width: 480px) {
     .information {
         display: flex;
         flex-direction: column;

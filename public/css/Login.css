@@ -178,3 +178,45 @@ body {
 #register:hover {
     color:#073B4C;
 }
+
+@media (max-width: 480px) {
+    .loginpage{
+        height: 100vh;
+        width: 500px;
+        max-width: 500px;
+        font-size: 15px;
+    }
+    #image {
+        height: 200px;
+        width: 200px;
+        max-width: 200px;
+    }
+    
+    #loginform {
+        height: 250px;
+        width: 150px;
+        max-width: 150px;
+        gap: 8px;
+    }
+    #username {
+        height: 15px;
+        width: 150px;
+        max-width: 150px;
+    }
+
+    #password {
+        height: 15px;
+        width: 150px;
+        max-width: 150px;
+    }
+    
+    #loginbtn {
+        font-size: 15px;
+        height: 25px;
+        width: 60px;
+    }
+    #register {
+        font-size: 15px;
+    }
+    
+}
