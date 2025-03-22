@@ -108,7 +108,7 @@ app.post("/Register", async (req, res) => {
   await Registered.save();
   console.log("Registered Successfully.");
 
-  // Send welcome email
+ 
   sendEmail(
     Email,
     "Welcome to FoodLink – Your NGO is Now Onboard",
@@ -123,15 +123,15 @@ app.post("/Register", async (req, res) => {
 
     <hr>
 
-    <p><strong>🔐 Login Credentials</strong><br>
-    Email: <strong>${Email}</strong><br>
+    <p><strong>Login Credentials</strong><br>
+    Username: <strong>${Email}</strong><br>
     Password: <strong>${Setpassword}</strong></p>
 
     <hr>
 
     <p>You’re now ready to make a meaningful impact. Log in to your dashboard, accept donations, and help ensure that surplus food reaches those who need it most.</p>
 
-    <p>👉 <a href="https://foodlink-every-meal-matters-5dl4.onrender.com/Login">Click here to log in and get started</a></p>
+    <p>👉 <a href="https://foodlink-every-meal-matters-5dl4.onrender.com/Login">Click here to Login</a></p>
 
     <p>Thank you for joining our mission. Together, we can make a difference — one meal at a time.</p>
 
