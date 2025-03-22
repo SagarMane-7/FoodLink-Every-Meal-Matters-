@@ -122,7 +122,7 @@ app.post("/Register", async (req, res) => {
     <p>Your registration is complete, and your dashboard is now active!</p>
 
     <p><b>Login Details:</b><br>
-    Email: <b>${Email}</b><br>
+    Username: <b>${Email}</b><br>
     Password: <b>${Setpassword}</b></p>
 
     <p>You’re now just one step away from making a real difference. Log in, accept donations, and help bridge the gap between abundance and hunger.</p>
