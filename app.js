@@ -39,12 +39,13 @@ mongoose.connect(process.env.MONGO_URL, {
 const islogged = (req, res, next) => {
   if (req.session.user) {
     next();
-  } else {
+  }
+  else {
     res.render("Login.ejs");
   }
-};
+}
 
-// Public Routes
+// User Interface
 app.get("/", async (req, res) => {
   req.session.destroy();
   const accepteddonations = await AcceptedDonation.find() || [];
@@ -72,16 +73,13 @@ app.get("/DonateMoney", (req, res) => {
   res.render("MoneyDonation.ejs");
 });
 
-// Login
 app.post("/Login", async (req, res) => {
   const { Email, Password } = req.body;
-
   const UserName = await Registration.findOne({ Email });
 
   if (UserName && UserName.Setpassword === Password) {
     req.session.user = Email;
     console.log("Logged in Successfully.");
-
     const availabledonations = await FoodDonation.find();
     const accepteddonations = await AcceptedDonation.find({ Accepted_By: req.session.user });
     res.render('Dashboard.ejs', { availabledonations, accepteddonations: accepteddonations || [] });
@@ -93,6 +91,7 @@ app.post("/Login", async (req, res) => {
 
 app.post("/Register", async (req, res) => {
   const { NGOName, TrustID, PANID, DARPANID, Address, CountryCode, Mobile, Email, Setpassword, Confirmpassword } = req.body;
+
   const Registered = new Registration({
     NGOName,
     TrustID,
@@ -109,29 +108,34 @@ app.post("/Register", async (req, res) => {
   await Registered.save();
   console.log("Registered Successfully.");
 
+  // Send welcome email
   sendEmail(
     Email,
-    "Welcome to FoodLink – Your NGO is Now Part of the Change!",
+    "Welcome to FoodLink – Your NGO is Now Onboard",
     `
     <h2>Welcome to FoodLink!</h2>
 
-    <p>Dear <b>${NGOName}</b>,</p>
+    <p>Dear <strong>${NGOName}</strong>,</p>
 
-    <p>We're thrilled to have your NGO join our mission to <b>reduce food waste and feed those in need</b>.</p>
+    <p>We are delighted to welcome your NGO to <strong>FoodLink</strong>, where we work together to reduce food waste and support communities in need.</p>
 
-    <p>Your registration is complete, and your dashboard is now active!</p>
+    <p>Your registration is now complete, and your dashboard is fully active.</p>
 
-    <p><b>Login Details:</b><br>
-    Username: <b>${Email}</b><br>
-    Password: <b>${Setpassword}</b></p>
+    <hr>
 
-    <p>You’re now just one step away from making a real difference. Log in, accept donations, and help bridge the gap between abundance and hunger.</p>
+    <p><strong>🔐 Login Credentials</strong><br>
+    Email: <strong>${Email}</strong><br>
+    Password: <strong>${Setpassword}</strong></p>
 
-    <p><a href="https://foodlink-every-meal-matters-5dl4.onrender.com/Login">👉 Click here to log in and get started</a></p>
+    <hr>
 
-    <p>Let’s change lives — one meal at a time.</p>
+    <p>You’re now ready to make a meaningful impact. Log in to your dashboard, accept donations, and help ensure that surplus food reaches those who need it most.</p>
 
-    <p><b>– Team FoodLink</b></p>
+    <p>👉 <a href="https://foodlink-every-meal-matters-5dl4.onrender.com/Login">Click here to log in and get started</a></p>
+
+    <p>Thank you for joining our mission. Together, we can make a difference — one meal at a time.</p>
+
+    <p>Warm regards,<br><strong>Team FoodLink</strong></p>
     `
   );
 
@@ -142,6 +146,7 @@ app.post("/Register", async (req, res) => {
 
 app.post("/DonateFood", async (req, res) => {
   const { First_Name, Last_Name, Mobile, Email, Address, Food_Category, Donation_Date, Time, Description } = req.body;
+
   const DonateFood = new FoodDonation({
     First_Name,
     Last_Name,
@@ -161,6 +166,7 @@ app.post("/DonateFood", async (req, res) => {
 
 app.post("/DonateMoney", async (req, res) => {
   const { First_Name, Last_Name, Mobile_Number, Email, Amount } = req.body;
+
   const DonateMoney = new MoneyDonation({
     First_Name,
     Last_Name,
@@ -174,6 +180,7 @@ app.post("/DonateMoney", async (req, res) => {
   res.render("DonationSucessfull.ejs");
 });
 
+// Dashboard
 app.get("/dashboard", islogged, async (req, res) => {
   const availabledonations = await FoodDonation.find();
   const accepteddonations = await AcceptedDonation.find({ Accepted_By: req.session.user });
@@ -181,12 +188,14 @@ app.get("/dashboard", islogged, async (req, res) => {
 });
 
 app.get("/profile", islogged, async (req, res) => {
+  console.log("Session User:", req.session.user);
   const userEmail = req.session.user;
   const profiles = await Registration.findOne({ Email: userEmail });
   res.render("Profile.ejs", { profiles });
 });
 
 app.get("/history", islogged, async (req, res) => {
+  console.log("Session User:", req.session.user);
   const accepteddonations = await AcceptedDonation.find({ Accepted_By: req.session.user });
   res.render('History.ejs', { accepteddonations: accepteddonations || [] });
 });
@@ -210,29 +219,30 @@ app.post('/accept-donation/:id', islogged, async (req, res) => {
 
   await acceptedDonation.save();
   await FoodDonation.findByIdAndDelete(donationId);
+
   const availabledonations = await FoodDonation.find();
   const accepteddonations = await AcceptedDonation.find({ Accepted_By: req.session.user });
-  const profiles = await Registration.findOne({ Email: req.session.user });
-
   res.render('Dashboard.ejs', { availabledonations, accepteddonations: accepteddonations || [] });
+
+  const profiles = await Registration.findOne({ Email: req.session.user });
 
   sendEmail(
     availabledonation.Email,
     "Your Food Donation Has Been Accepted!",
     `
     <p>Dear ${availabledonation.First_Name} ${availabledonation.Last_Name},</p>
-    <p>Thank you for your generous food donation through <b>FoodLink</b>.</p>
+    <p>Thank you for your generous food donation through <strong>FoodLink</strong>.</p>
     <p>Your donation has been accepted by the following NGO:</p>
-    <p><b>NGO Details:</b><br>
+    <p><strong>NGO Details:</strong><br>
     Name: ${profiles.NGOName}<br>
     Mobile: ${profiles.Mobile}<br>
     Email: ${profiles.Email}</p>
-    <p><b>Donation Details:</b><br>
+    <p><strong>Donation Details:</strong><br>
     Food Category: ${availabledonation.Food_Category}<br>
-    Address: ${availabledonation.Address}<br>
-    Time: ${availabledonation.Time} on ${availabledonation.Donation_Date}<br>
+    Pickup Address: ${availabledonation.Address}<br>
+    Preferred Time: ${availabledonation.Time} on ${availabledonation.Donation_Date}<br>
     Description: ${availabledonation.Description}</p>
-    <p>The NGO will contact you soon for pickup. Thank you for supporting our mission.</p>
+    <p>The NGO will contact you shortly to arrange the pickup.</p>
     <p>– Team FoodLink</p>
     `
   );
@@ -242,17 +252,17 @@ app.post('/accept-donation/:id', islogged, async (req, res) => {
     "You Accepted a Food Donation via FoodLink",
     `
     <p>Dear ${profiles.NGOName},</p>
-    <p>You have successfully accepted a food donation through <b>FoodLink</b>.</p>
-    <p><b>Donor Details:</b><br>
+    <p>You have successfully accepted a food donation through <strong>FoodLink</strong>.</p>
+    <p><strong>Donor Details:</strong><br>
     Name: ${availabledonation.First_Name} ${availabledonation.Last_Name}<br>
     Mobile: ${availabledonation.Mobile}<br>
     Email: ${availabledonation.Email}</p>
-    <p><b>Donation Details:</b><br>
+    <p><strong>Donation Details:</strong><br>
     Food Category: ${availabledonation.Food_Category}<br>
-    Address: ${availabledonation.Address}<br>
-    Time: ${availabledonation.Time} on ${availabledonation.Donation_Date}<br>
+    Pickup Address: ${availabledonation.Address}<br>
+    Preferred Time: ${availabledonation.Time} on ${availabledonation.Donation_Date}<br>
     Description: ${availabledonation.Description}</p>
-    <p>Please reach out to the donor and coordinate the pickup.</p>
+    <p>Please contact the donor to coordinate the pickup.</p>
     <p>– Team FoodLink</p>
     `
   );
