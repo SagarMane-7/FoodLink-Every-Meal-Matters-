@@ -90,15 +90,6 @@
    Open your browser and navigate to `http://localhost:8080`.
 
 ---
-
-## 🤝 Contributing
-
-Contributions are welcome! Feel free to open issues or submit pull requests to improve FoodLink.
-
-## 📄 License
-
-This project is licensed under the [ISC License](LICENSE).
-
 ---
 
 **Together, let's ensure no meal goes to waste. 🌍💙**
