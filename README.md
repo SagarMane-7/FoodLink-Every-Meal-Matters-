@@ -88,8 +88,3 @@
 
 5. **Access the platform**:
    Open your browser and navigate to `http://localhost:8080`.
-
----
----
-
-**Together, let's ensure no meal goes to waste. 🌍💙**
