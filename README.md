@@ -79,12 +79,9 @@
 4. **Run the application**:
    - For development (with nodemon):
      ```bash
-     npm run dev
+     node app.js
      ```
-   - For production:
-     ```bash
-     npm start
-     ```
+   
 
 5. **Access the platform**:
    Open your browser and navigate to `http://localhost:8080`.
